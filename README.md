@@ -11,17 +11,17 @@
 - 8.DOM events
 - 9.Créer une directive
 - 10.Data Binding
-- 11.Le scope
-- 12.Le contrôleur
-- 13.Boucle de digest
-- 14.Modules
-- 15.Les promesses angular
-- 16.Le singelon
-- 17.Le service
-- 18.Injection de dépendances
-- 19.Routing
-- 20.Créer un service
-- 21.Animations
+- 11.Le contrôleur
+- 12.Le scope
+- 13.Le "singleton"
+- 14.L' injection de dépendances
+- 15.Le service
+- 16.Le service "$http"
+- 17.Le routing et le service "$location"
+- 18.Les promesses
+- 19.Le module
+- 20.Les animations
+- 21."Behind the scene"
 - 22.Bonnes pratiques
 
 ## Installation

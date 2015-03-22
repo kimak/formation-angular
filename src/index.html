@@ -6,8 +6,8 @@
 </head>
 <body>
 
-<h1>{{model.title}}</h1>
-<h2>{{getTitle()}}</h2>
+<h1>{{model.title | capitalize}}</h1>
+<h2>{{getTitle()}} : {{currentDate | date:'fullDate'}}</h2>
 
 
 <script src="vendor/angular.js"></script>
@@ -15,5 +15,6 @@
 
 <script src="scripts/app.js"></script>
 <script src="scripts/controller/main.js"></script>
+<script src="scripts/filter/capitalize.js"></script>
 </body>
 </html>

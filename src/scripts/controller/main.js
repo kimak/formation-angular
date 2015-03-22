@@ -3,8 +3,10 @@ angular.module("avengersApp").controller("MainCtrl",function($scope){
 
     $scope.title = "AngularJs Formation";
 
+    $scope.currentDate = new Date().getTime();
+
     $scope.model = {
-        title: "Hello avengers !"
+        title: "hello avengers !"
     };
 
     $scope.getTitle = function(){

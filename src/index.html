@@ -1,16 +1,19 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="avengersApp" ng-controller="MainCtrl">
 <head>
   <meta charset="utf-8">
-  <title>AngularJs Formation</title>
+  <title>{{title}}</title>
 </head>
-<body ng-app="avengersApp">
+<body>
 
-<span>{{"Hello avengers !"}}</span>
+<h1>{{model.title}}</h1>
+<h2>{{getTitle()}}</h2>
+
 
 <script src="vendor/angular.js"></script>
 <script src="vendor/angular-route.js"></script>
 
 <script src="scripts/app.js"></script>
+<script src="scripts/controller/main.js"></script>
 </body>
 </html>

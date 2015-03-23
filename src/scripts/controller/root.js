@@ -1,4 +1,4 @@
-angular.module("avengersApp").controller("RootCtrl",function($scope){
+angular.module("avengersApp").controller("RootCtrl",function($scope, $filter){
 
 
     $scope.title = "AngularJs Formation";
@@ -10,7 +10,7 @@ angular.module("avengersApp").controller("RootCtrl",function($scope){
     };
 
     $scope.getTitle = function(){
-        return "my first Application";
+        return $filter('capitalize')("my first Application");
     };
 
 

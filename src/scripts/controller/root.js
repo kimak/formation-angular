@@ -4,7 +4,7 @@ angular.module("avengersApp").controller("RootCtrl",function($scope){
     $scope.title = "AngularJs Formation";
 
     $scope.model = {
-        title: "Hello avengers !"
+        title: "hello avengers !"
     };
 
     $scope.getTitle = function(){

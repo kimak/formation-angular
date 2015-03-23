@@ -3,12 +3,16 @@
 <head>
   <meta charset="utf-8">
   <title>{{title}}</title>
+
+  <link rel="stylesheet" type="text/css" href="styles/app.css">
+
 </head>
 <body>
 
-<h1>{{model.title | capitalize}}</h1>
-<h2>{{getTitle()}} : {{currentDate | date:'fullDate'}}</h2>
-
+<header ng-controller="HeaderCtrl">
+    <h1>{{model.title | capitalize}}</h1>
+    <h2>{{getTitle()}} : {{currentDate | date:'fullDate'}}</h2>
+</header>
 
 <script src="vendor/angular.js"></script>
 <script src="vendor/angular-route.js"></script>
@@ -16,5 +20,6 @@
 <script src="scripts/app.js"></script>
 <script src="scripts/filter/capitalize.js"></script>
 <script src="scripts/controller/root.js"></script>
+<script src="scripts/controller/header.js"></script>
 </body>
 </html>

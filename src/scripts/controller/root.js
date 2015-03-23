@@ -8,7 +8,7 @@ angular.module("avengersApp").controller("RootCtrl",function($scope){
     };
 
     $scope.getTitle = function(){
-        return "My first Application";
+        return "my first Application";
     };
 
 

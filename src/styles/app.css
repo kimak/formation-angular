@@ -6,7 +6,7 @@ header{
     background: #000;
     margin: 0;
     color: #FFF;
-    padding: 10px;
+    padding: 10px 40px;
 }
 
 h4{
@@ -14,14 +14,15 @@ h4{
 }
 
 ul{
-    margin-right: 30px;
+    margin-right: 40px;
 }
 
 li{
-    padding: 5px;
+    padding: 5px 20px;
     position: relative;
     height: 65px;
     border-bottom: solid 1px #000;
+    list-style: none;
 }
 
 li img{
@@ -29,7 +30,6 @@ li img{
     top: 0;
     right: 0;
 }
-
 
 
 li.odd{

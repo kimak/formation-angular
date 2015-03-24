@@ -21,11 +21,12 @@
         <select ng-model="orderProp">
             <option value="name">Ordre Alphabétique</option>
             <option value="age">Age</option>
+            <option value="status">Status</option>
         </select>
     </div>
 
     <ul>
-        <li ng-repeat="heroe in heroes" class="ng-class-even:'even';ng-class-odd:'odd'">
+        <li ng-repeat="heroe in heroes | orderBy:orderProp" class="ng-class-even:'even';ng-class-odd:'odd'">
             <h4>{{$index }} : {{heroe.name}}</h4>
             <span>{{heroe.description}}</span>
             <img ng-src="{{heroe.image}}">

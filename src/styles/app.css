@@ -55,3 +55,7 @@ li .unavailable{
 li .busy{
     color: #ff941e;
 }
+
+.filter{
+    margin:20px 0px 0px 40px;
+}

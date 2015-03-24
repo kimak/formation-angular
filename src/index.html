@@ -15,6 +15,15 @@
 </header>
 
 <section ng-controller="HeroesCtrl">
+
+    <div class="filter">
+        Filtrer par:
+        <select ng-model="orderProp">
+            <option value="name">Ordre Alphabétique</option>
+            <option value="age">Age</option>
+        </select>
+    </div>
+
     <ul>
         <li ng-repeat="heroe in heroes" class="ng-class-even:'even';ng-class-odd:'odd'">
             <h4>{{$index }} : {{heroe.name}}</h4>

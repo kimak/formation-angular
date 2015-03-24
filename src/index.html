@@ -17,7 +17,7 @@
 <section ng-controller="HeroesCtrl">
     <ul>
         <li ng-repeat="heroe in heroes" class="ng-class-even:'even';ng-class-odd:'odd'">
-            <h4>{{heroe.name}}</h4>
+            <h4>{{$index }} : {{heroe.name}}</h4>
             <span>{{heroe.description}}</span>
         </li>
     </ul>

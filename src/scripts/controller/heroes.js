@@ -4,32 +4,38 @@ angular.module("avengersApp").controller("HeroesCtrl", function ($scope, $filter
         {
             name: "Captain America",
             description: "Sénile et grabataire",
-            status:"unavailable"
+            status:"0",
+            image:"/images/america.png"
         },
         {
             name: "Iron Man",
             description: "Riche et célèbre",
-            status:"available"
+            status:"1",
+            image:"/images/iron.png"
         },
         {
             name: "Giant Man",
             description: "Complètement perché",
-            status:"busy"
+            status:"2",
+            image:"/images/giant.png"
         },
         {
             name: "Hulk",
             description: "Géant vert, vendeur de maïs",
-            status:"busy"
+            status:"0",
+            image:"/images/hulk.png"
         },
         {
             name: "La veuve noire",
             description: "Gorgeous",
-            status:"available"
+            status:"1",
+            image:"/images/veuve.png"
         },
         {
             name: "Thor",
             description: "Viking body buildé",
-            status:"unavailable"
+            status:"2",
+            image:"/images/thor.png"
         }
     ];
 

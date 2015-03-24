@@ -19,6 +19,12 @@
         <li ng-repeat="heroe in heroes" class="ng-class-even:'even';ng-class-odd:'odd'">
             <h4>{{$index }} : {{heroe.name}}</h4>
             <span>{{heroe.description}}</span>
+            <img ng-src="{{heroe.image}}">
+            <div ng-switch on="heroe.status" class="status">
+                <span ng-switch-when="0" class="available">Disponible</span>
+                <span ng-switch-when="1" class="busy">Occupé</span>
+                <span ng-switch-when="2" class="unavailable">Indisponible</span>
+            </div>
         </li>
     </ul>
 </section>

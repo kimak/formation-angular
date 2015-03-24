@@ -13,14 +13,45 @@ h4{
     margin:20px 0px 0px 0px;
 }
 
+ul{
+    margin-right: 30px;
+}
+
 li{
     padding: 5px;
+    position: relative;
+    height: 65px;
+    border-bottom: solid 1px #000;
 }
 
-.even{
-   border-bottom: solid 1px #FFF;
+li img{
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
-.odd{
+
+
+li.odd{
     background: #f2f2f2;
+}
+
+li .status{
+    position: absolute;
+    top: 50%;
+    right: 90px;
+    transform: translateY(-50%);
+}
+
+li .available{
+    color: #57c300;
+}
+
+
+li .unavailable{
+    color: #ff0000;
+}
+
+li .busy{
+    color: #ff941e;
 }

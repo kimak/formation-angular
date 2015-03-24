@@ -14,31 +14,11 @@
     <h2>{{getTitle()}} : {{currentDate | date:'fullDate'}}</h2>
 </header>
 
-<section>
+<section ng-controller="HeroesCtrl">
     <ul>
-        <li>
-            <h4>Captain America</h4>
-            <span>Sénile et grabataire</span>
-        </li>
-        <li>
-            <h4>Iron Man</h4>
-            <span>Riche et célèbre</span>
-        </li>
-        <li>
-            <h4>Giant Man</h4>
-            <span>Complètement perché</span>
-        </li>
-        <li>
-            <h4>Hulk</h4>
-            <span>Géant vert, vendeur de maïs</span>
-        </li>
-        <li>
-            <h4>La veuve noire</h4>
-            <span>Gorgeous</span>
-        </li>
-        <li>
-            <h4>Thor</h4>
-            <span>Viking body buildé</span>
+        <li ng-repeat="heroe in heroes" class="ng-class-even:'even';ng-class-odd:'odd'">
+            <h4>{{heroe.name}}</h4>
+            <span>{{heroe.description}}</span>
         </li>
     </ul>
 </section>
@@ -49,6 +29,7 @@
 <script src="scripts/app.js"></script>
 <script src="scripts/filter/capitalize.js"></script>
 <script src="scripts/controller/root.js"></script>
+<script src="scripts/controller/heroes.js"></script>
 <script src="scripts/controller/header.js"></script>
 </body>
 </html>

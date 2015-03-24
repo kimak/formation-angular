@@ -12,3 +12,15 @@ header{
 h4{
     margin:20px 0px 0px 0px;
 }
+
+li{
+    padding: 5px;
+}
+
+.even{
+   border-bottom: solid 1px #FFF;
+}
+
+.odd{
+    background: #f2f2f2;
+}

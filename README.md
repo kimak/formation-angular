@@ -1,28 +1,51 @@
-# Angular formation for beginners 
+# Angular formation for beginners
+
+1. Introduction
+
+2. MVVM
+
+3. Initialisation
+
+4. Les expressions
+
+5. Le contrôleur
+
+6. Les filtres
+
+7. Créer un filtre
+
+8. Les directives
+
+9. DOM events
+
+10. Créer une directive
+
+11. Data Binding
+
+12. Le scope
+
+13. Boucle de digest
+
+14. Modules
+
+15. Les promesses angular
+
+16. Le singlelon
+
+17. Le service
+
+18. Injection de dépendances
+
+19. Routing
+
+20. Créer un service
+
+21. Animations
+
+22. Bonnes pratiques
 
 
-- 1.Introduction
-- 2.Initialisation
-- 3.Les expressions
-- 4.Les filtres
-- 5.Créer un filtre
-- 6.MVVM
-- 7.Les directives
-- 8.DOM events
-- 9.Créer une directive
-- 10.Data Binding
-- 11.Le contrôleur
-- 12.Le scope
-- 13.Le "singleton"
-- 14.L' injection de dépendances
-- 15.Le service
-- 16.Le service "$http"
-- 17.Le routing et le service "$location"
-- 18.Les promesses
-- 19.Le module
-- 20.Les animations
-- 21."Behind the scene"
-- 22.Bonnes pratiques
+
 
 ## Installation
 

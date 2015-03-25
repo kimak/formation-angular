@@ -45,4 +45,10 @@ angular.module("avengersApp").controller("HeroesCtrl", function ($scope, $filter
         }
     ];
 
+
+    $scope.click = function(name){
+
+        $scope.selectedHero = name;
+    }
+
 });

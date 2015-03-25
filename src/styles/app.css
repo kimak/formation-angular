@@ -56,6 +56,10 @@ li .busy{
     color: #ff941e;
 }
 
+li.isSelected{
+    color: #8b0f0e;
+}
+
 .filter{
     margin:20px 0px 0px 40px;
 }

@@ -1,10 +1,6 @@
-angular.module("avengersApp").controller("HeroesCtrl", function ($scope, heroesFactory, $log) {
+angular.module("avengersApp").controller("HeroesCtrl", function ($scope, heroesFactory) {
     $scope.orderProp = "status";
-    heroesFactory.getHeroes().then(function (data) {
-        $scope.heroes = data;
-    }, function (error) {
-        $log.warn(error)
-    });
+    $scope.heroes = heroesFactory.getHeroes();
 
     $scope.click = function (hero) {
 

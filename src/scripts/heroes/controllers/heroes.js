@@ -1,4 +1,4 @@
-angular.module("avengersApp").controller("HeroesCtrl", function ($scope, heroesFactory, $log) {
+angular.module("avengersApp").controller("HeroesCtrl", function ($scope, heroesFactory, $log, $location) {
     $scope.orderProp = "status";
     heroesFactory.getHeroes().then(function (data) {
         $scope.heroes = data;
@@ -7,7 +7,7 @@ angular.module("avengersApp").controller("HeroesCtrl", function ($scope, heroesF
     });
 
     $scope.click = function (hero) {
-
+        $location.path('/heroes/' + hero.id);
         $scope.selectedHero = hero;
     }
 

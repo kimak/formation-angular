@@ -12,50 +12,23 @@
 <header ng-controller="HeaderCtrl">
     <h1>{{model.title | capitalize}}</h1>
     <h2>{{getTitle()}} : {{currentDate | date:'fullDate'}}</h2>
+    <a href="#heroes">Aller à la liste des Héros</a><br/>
 </header>
 
-<section ng-controller="HeroesCtrl">
-
-    <div class="filter">
-        Filtrer par:
-        <select ng-model="orderProp">
-            <option value="name">Ordre Alphabétique</option>
-            <option value="age">Age</option>
-            <option value="status">Status</option>
-        </select>
-        <hr/>
-        <div ng-if="selectedHero">
-            Changer le status de {{selectedHero.name}} :
-            <select ng-model="selectedHero.status">
-                <option value="0">Disponible</option>
-                <option value="1">Occupé</option>
-                <option value="2">Indisponible</option>
-            </select>
-        <hr/>
-        </div>
-    </div>
-
-    <ul class="heroes-list">
-        <li ng-repeat="hero in heroes | orderBy:orderProp" class="ng-class-even:'even';ng-class-odd:'odd'"
-            ng-click="click(hero)"
-            ng-class="{isSelected:hero.name==selectedHero.name}"
-            class="hero-name">
-            <hero-info info="hero" status="{{hero.status}}" class="hero"/>
-        </li>
-    </ul>
-</section>
+<div ng-view></div>
 
 <script src="vendor/angular.js"></script>
 <script src="vendor/angular-route.js"></script>
 <script src="vendor/moment.js"></script>
 
 <script src="scripts/app.js"></script>
-<script src="scripts/filter/capitalize.js"></script>
-<script src="scripts/controller/root.js"></script>
-<script src="scripts/controller/heroes.js"></script>
-<script src="scripts/controller/header.js"></script>
-<script src="scripts/directives/heroInfo.js"></script>
-<script src="scripts/services/urlConfig.js"></script>
-<script src="scripts/services/heroesFactory.js"></script>
+<script src="scripts/core/filters/capitalize.js"></script>
+<script src="scripts/root.js"></script>
+<script src="scripts/heroes/controllers/heroes.js"></script>
+<script src="scripts/header/header.js"></script>
+<script src="scripts/heroes/directives/heroInfo.js"></script>
+<script src="scripts/core/services/urlConfig.js"></script>
+<script src="scripts/heroes/services/heroesFactory.js"></script>
+<script src="scripts/heroes/controllers/hero.js"></script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 [
   {
+    "id":1,
     "name": "Captain America",
     "description": "Sénile et grabataire",
     "status": "0",
@@ -8,6 +9,7 @@
     "age": 90
   },
   {
+    "id":2,
     "name": "Iron Man",
     "description": "Riche et célèbre",
     "status": "1",
@@ -16,6 +18,7 @@
     "age": 35
   },
   {
+    "id":3,
     "name": "Giant Man",
     "description": "Complètement perché",
     "status": "2",
@@ -24,6 +27,7 @@
     "age": 40
   },
   {
+    "id":4,
     "name": "Hulk",
     "description": "Géant vert, vendeur de maïs",
     "status": "0",
@@ -32,6 +36,7 @@
     "age": 39
   },
   {
+    "id":5,
     "name": "La veuve noire",
     "description": "Gorgeous",
     "status": "1",
@@ -40,6 +45,7 @@
     "age": 24
   },
   {
+    "id":6,
     "name": "Thor",
     "description": "Viking body buildé",
     "status": "2",

@@ -1,0 +1,30 @@
+<section>
+
+    <div class="filter">
+        Filtrer par:
+        <select ng-model="orderProp">
+            <option value="name">Ordre Alphabétique</option>
+            <option value="age">Age</option>
+            <option value="status">Status</option>
+        </select>
+        <hr/>
+        <div ng-if="selectedHero">
+            Changer le status de {{selectedHero.name}} :
+            <select ng-model="selectedHero.status">
+                <option value="0">Disponible</option>
+                <option value="1">Occupé</option>
+                <option value="2">Indisponible</option>
+            </select>
+            <hr/>
+        </div>
+    </div>
+
+    <ul class="heroes-list">
+        <li ng-repeat="hero in heroes | orderBy:orderProp" class="ng-class-even:'even';ng-class-odd:'odd'"
+            ng-click="click(hero)"
+            ng-class="{isSelected:hero.name==selectedHero.name}"
+            class="hero-name">
+            <hero-info info="hero" status="{{hero.status}}" class="hero"/>
+        </li>
+    </ul>
+</section>

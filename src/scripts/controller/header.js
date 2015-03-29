@@ -1,4 +1,4 @@
-angular.module("avengersApp").controller("HeaderCtrl",function($scope, $filter){
+angular.module("avengersApp").controller("HeaderCtrl", function ($scope, $filter) {
 
     $scope.currentDate = new Date().getTime();
 
@@ -6,7 +6,7 @@ angular.module("avengersApp").controller("HeaderCtrl",function($scope, $filter){
         title: "hello avengers !"
     };
 
-    $scope.getTitle = function(){
+    $scope.getTitle = function () {
         return $filter('capitalize')("my first Application");
     };
 

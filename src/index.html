@@ -1,16 +1,17 @@
 <!doctype html>
 <html lang="en" ng-app="avengersApp" ng-controller="RootCtrl">
 <head>
-  <meta charset="utf-8">
-  <title>{{title}}</title>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
 
-  <link rel="stylesheet" type="text/css" href="styles/app.css">
+    <link rel="stylesheet" type="text/css" href="styles/app.css">
 
 </head>
 <body>
 
 <header ng-controller="HeaderCtrl">
     <h1>{{model.title | capitalize}}</h1>
+
     <h2>{{getTitle()}} : {{currentDate | date:'fullDate'}}</h2>
 </header>
 
@@ -25,18 +26,20 @@
         </select>
     </div>
 
-    <ul>
-        <li ng-repeat="heroe in heroes | orderBy:orderProp" class="ng-class-even:'even';ng-class-odd:'odd'"
-            ng-click="click(heroe.name)"
-            ng-class="{isSelected:heroe.name==selectedHero}"
-                >
-            <h4>{{$index }} : {{heroe.name}}</h4>
-            <span>{{heroe.description}}</span>
-            <img ng-src="{{heroe.image}}">
-            <div ng-switch on="heroe.status" class="status">
+    <ul class="heroes-list">
+        <li ng-repeat="hero in heroes | orderBy:orderProp" class="ng-class-even:'even';ng-class-odd:'odd'"
+            ng-click="click(hero)"
+            ng-class="{isSelected:hero.name==selectedHero.name}"
+            class="hero-block">
+            <span class="hero-name">{{hero.name}}</span>
+            <span>{{hero.description}}</span>
+            <span>Age : {{hero.age}}</span>
+            <img ng-src="{{hero.image}}">
+
+            <div ng-switch on="hero.status" class="status">
                 <span ng-switch-when="0" class="available">Disponible</span>
                 <span ng-switch-when="1" class="busy">Occupé</span>
-                <span ng-switch-when="2" class="unavailable">Indisponible</span>
+                <span ng-switch-when="2" class="unavailable">Blessé</span>
             </div>
         </li>
     </ul>
@@ -44,6 +47,7 @@
 
 <script src="vendor/angular.js"></script>
 <script src="vendor/angular-route.js"></script>
+<script src="vendor/moment.js"></script>
 
 <script src="scripts/app.js"></script>
 <script src="scripts/filter/capitalize.js"></script>

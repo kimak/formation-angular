@@ -69,3 +69,10 @@ li.isSelected {
 .hero-name {
     font-weight: bold;
 }
+
+.hero{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}

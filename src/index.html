@@ -1,17 +1,16 @@
 <!doctype html>
 <html lang="en" ng-app="avengersApp" ng-controller="RootCtrl">
 <head>
-    <meta charset="utf-8">
-    <title>{{title}}</title>
+  <meta charset="utf-8">
+  <title>{{title}}</title>
 
-    <link rel="stylesheet" type="text/css" href="styles/app.css">
+  <link rel="stylesheet" type="text/css" href="styles/app.css">
 
 </head>
 <body>
 
 <header ng-controller="HeaderCtrl">
     <h1>{{model.title | capitalize}}</h1>
-
     <h2>{{getTitle()}} : {{currentDate | date:'fullDate'}}</h2>
 </header>
 
@@ -24,23 +23,24 @@
             <option value="age">Age</option>
             <option value="status">Status</option>
         </select>
+        <hr/>
+        <div ng-if="selectedHero">
+            Changer le status de {{selectedHero.name}} :
+            <select ng-model="selectedHero.status">
+                <option value="0">Disponible</option>
+                <option value="1">Occupé</option>
+                <option value="2">Indisponible</option>
+            </select>
+        <hr/>
+        </div>
     </div>
 
     <ul class="heroes-list">
         <li ng-repeat="hero in heroes | orderBy:orderProp" class="ng-class-even:'even';ng-class-odd:'odd'"
             ng-click="click(hero)"
             ng-class="{isSelected:hero.name==selectedHero.name}"
-            class="hero-block">
-            <span class="hero-name">{{hero.name}}</span>
-            <span>{{hero.description}}</span>
-            <span>Age : {{hero.age}}</span>
-            <img ng-src="{{hero.image}}">
-
-            <div ng-switch on="hero.status" class="status">
-                <span ng-switch-when="0" class="available">Disponible</span>
-                <span ng-switch-when="1" class="busy">Occupé</span>
-                <span ng-switch-when="2" class="unavailable">Blessé</span>
-            </div>
+            class="hero-name">
+            <hero-info info="hero" status="{{hero.status}}" class="hero"/>
         </li>
     </ul>
 </section>
@@ -54,5 +54,6 @@
 <script src="scripts/controller/root.js"></script>
 <script src="scripts/controller/heroes.js"></script>
 <script src="scripts/controller/header.js"></script>
+<script src="scripts/directives/heroInfo.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-angular.module("avengersApp").controller("RootCtrl", function ($scope, $filter) {
+angular.module("avengersApp").controller("RootCtrl", function ($scope) {
 
     $scope.title = "AngularJs Formation";
 

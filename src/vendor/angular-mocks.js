@@ -1015,16 +1015,16 @@
      *
      *
      * # Unit testing with mock $httpBackend
-     * The following code shows how to setup and use the mock backend when unit testing a controller.
-     * First we create the controller under test:
+     * The following code shows how to setup and use the mock backend when unit testing a heroes.
+     * First we create the heroes under test:
      *
      ```js
      // The module code
      angular
      .module('MyApp', [])
-     .controller('MyController', MyController);
+     .heroes('MyController', MyController);
 
-     // The controller code
+     // The heroes code
      function MyController($scope, $http) {
     var authToken;
 
@@ -1049,7 +1049,7 @@
      * Now we setup the mock backend and create the test specs:
      *
      ```js
-     // testing controller
+     // testing heroes
      describe('MyController', function() {
        var $httpBackend, $rootScope, createController, authRequestHandler;
 
@@ -1065,11 +1065,11 @@
 
          // Get hold of a scope (i.e. the root scope)
          $rootScope = $injector.get('$rootScope');
-         // The $controller service is used to create instances of controllers
-         var $controller = $injector.get('$controller');
+         // The $heroes service is used to create instances of controllers
+         var $heroes = $injector.get('$heroes');
 
          createController = function() {
-           return $controller('MyController', {'$scope' : $rootScope });
+           return $heroes('MyController', {'$scope' : $rootScope });
          };
        }));
 
@@ -1082,7 +1082,7 @@
 
        it('should fetch authentication token', function() {
          $httpBackend.expectGET('/auth.py');
-         var controller = createController();
+         var heroes = createController();
          $httpBackend.flush();
        });
 
@@ -1093,18 +1093,18 @@
          authRequestHandler.respond(401, '');
 
          $httpBackend.expectGET('/auth.py');
-         var controller = createController();
+         var heroes = createController();
          $httpBackend.flush();
          expect($rootScope.status).toBe('Failed...');
        });
 
 
        it('should send msg to server', function() {
-         var controller = createController();
+         var heroes = createController();
          $httpBackend.flush();
 
          // now you don’t care about the authentication, but
-         // the controller will still send the request and
+         // the heroes will still send the request and
          // $httpBackend will respond without you having to
          // specify the expectation and response for this request
 
@@ -1117,7 +1117,7 @@
 
 
        it('should send auth header', function() {
-         var controller = createController();
+         var heroes = createController();
          $httpBackend.flush();
 
          $httpBackend.expectPOST('/add-msg.py', undefined, function(headers) {

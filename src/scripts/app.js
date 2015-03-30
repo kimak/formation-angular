@@ -3,7 +3,7 @@
 var app = angular.module("avengersApp", ['ngRoute']);
 
 //app.config()
-//app.controller()
+//app.heroes()
 //app.filter() etc...
 
 

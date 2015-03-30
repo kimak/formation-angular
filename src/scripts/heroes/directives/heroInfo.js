@@ -3,7 +3,7 @@
  */
 angular.module('avengersApp').directive('heroInfo', ['$interval', function () {
     return {
-        templateUrl: '/scripts/directives/heroInfo.html',
+        templateUrl: '/scripts/heroes/directives/heroInfo.html',
         restrict: 'E',
         scope: {
             hero: '=info',

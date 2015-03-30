@@ -76,10 +76,10 @@
          *
          *    Object properties:
          *
-         *    - `controller` – `{(string|function()=}` – Controller fn that should be associated with
+         *    - `heroes` – `{(string|function()=}` – Controller fn that should be associated with
          *      newly created scope or the name of a {@link angular.Module#controller registered
-   *      controller} if passed as a string.
-         *    - `controllerAs` – `{string=}` – A controller alias name. If present the controller will be
+   *      heroes} if passed as a string.
+         *    - `controllerAs` – `{string=}` – A heroes alias name. If present the heroes will be
          *      published to scope under the `controllerAs` name.
          *    - `template` – `{string=|function()=}` – html template as a string or a function that
          *      returns an html template as a string which should be used by {@link
@@ -100,8 +100,8 @@
          *        `$location.path()` by applying the current route
          *
          *    - `resolve` - `{Object.<string, function>=}` - An optional map of dependencies which should
-         *      be injected into the controller. If any of these dependencies are promises, the router
-         *      will wait for them all to be resolved or one to be rejected before the controller is
+         *      be injected into the heroes. If any of these dependencies are promises, the router
+         *      will wait for them all to be resolved or one to be rejected before the heroes is
          *      instantiated.
          *      If all the promises are resolved successfully, the values of the resolved promises are
          *      injected and {@link ngRoute.$route#$routeChangeSuccess $routeChangeSuccess} event is
@@ -109,11 +109,11 @@
          *      {@link ngRoute.$route#$routeChangeError $routeChangeError} event is fired. The map object
          *      is:
          *
-         *      - `key` – `{string}`: a name of a dependency to be injected into the controller.
+         *      - `key` – `{string}`: a name of a dependency to be injected into the heroes.
          *      - `factory` - `{string|function}`: If `string` then it is an alias for a service.
          *        Otherwise if function, then it is {@link auto.$injector#invoke injected}
          *        and the return value is treated as the dependency. If the result is a promise, it is
-         *        resolved before its value is injected into the controller. Be aware that
+         *        resolved before its value is injected into the heroes. Be aware that
          *        `ngRoute.$routeParams` will still refer to the previous route within these resolve
          *        functions.  Use `$route.current.params` to access the new route parameters, instead.
          *
@@ -266,9 +266,9 @@
                  * @property {Object} current Reference to the current route definition.
                  * The route definition contains:
                  *
-                 *   - `controller`: The controller constructor as define in route definition.
-                 *   - `locals`: A map of locals which is used by {@link ng.$controller $controller} service for
-                 *     controller instantiation. The `locals` contain
+                 *   - `heroes`: The heroes constructor as define in route definition.
+                 *   - `locals`: A map of locals which is used by {@link ng.$controller $heroes} service for
+                 *     heroes instantiation. The `locals` contain
                  *     the resolved values of the `resolve` map. Additionally the `locals` also contain:
                  *
                  *     - `$scope` - The current route scope.
@@ -295,7 +295,7 @@
                  * <example name="$route-service" module="ngRouteExample"
                  *          deps="angular-route.js" fixBase="true">
                  *   <file name="index.html">
-                 *     <div ng-controller="MainController">
+                 *     <div ng-heroes="MainController">
                  *       Choose:
                  *       <a href="Book/Moby">Moby</a> |
                  *       <a href="Book/Moby/ch/1">Moby: Ch1</a> |
@@ -316,12 +316,12 @@
                  *   </file>
                  *
                  *   <file name="book.html">
-                 *     controller: {{name}}<br />
+                 *     heroes: {{name}}<br />
                  *     Book Id: {{params.bookId}}<br />
                  *   </file>
                  *
                  *   <file name="chapter.html">
-                 *     controller: {{name}}<br />
+                 *     heroes: {{name}}<br />
                  *     Book Id: {{params.bookId}}<br />
                  *     Chapter Id: {{params.chapterId}}
                  *   </file>
@@ -329,18 +329,18 @@
                  *   <file name="script.js">
                  *     angular.module('ngRouteExample', ['ngRoute'])
                  *
-                 *      .controller('MainController', function($scope, $route, $routeParams, $location) {
+                 *      .heroes('MainController', function($scope, $route, $routeParams, $location) {
      *          $scope.$route = $route;
      *          $scope.$location = $location;
      *          $scope.$routeParams = $routeParams;
      *      })
                  *
-                 *      .controller('BookController', function($scope, $routeParams) {
+                 *      .heroes('BookController', function($scope, $routeParams) {
      *          $scope.name = "BookController";
      *          $scope.params = $routeParams;
      *      })
                  *
-                 *      .controller('ChapterController', function($scope, $routeParams) {
+                 *      .heroes('ChapterController', function($scope, $routeParams) {
      *          $scope.name = "ChapterController";
      *          $scope.params = $routeParams;
      *      })
@@ -349,7 +349,7 @@
      *       $routeProvider
      *        .when('/Book/:bookId', {
      *         templateUrl: 'book.html',
-     *         controller: 'BookController',
+     *         heroes: 'BookController',
      *         resolve: {
      *           // I will cause a 1 second delay
      *           delay: function($q, $timeout) {
@@ -361,7 +361,7 @@
      *       })
      *       .when('/Book/:bookId/ch/:chapterId', {
      *         templateUrl: 'chapter.html',
-     *         controller: 'ChapterController'
+     *         heroes: 'ChapterController'
      *       });
      *
      *       // configure html5 to get links working on jsfiddle
@@ -374,14 +374,14 @@
                  *     it('should load and compile correct template', function() {
      *       element(by.linkText('Moby: Ch1')).click();
      *       var content = element(by.css('[ng-view]')).getText();
-     *       expect(content).toMatch(/controller\: ChapterController/);
+     *       expect(content).toMatch(/heroes\: ChapterController/);
      *       expect(content).toMatch(/Book Id\: Moby/);
      *       expect(content).toMatch(/Chapter Id\: 1/);
      *
      *       element(by.partialLinkText('Scarlet')).click();
      *
      *       content = element(by.css('[ng-view]')).getText();
-     *       expect(content).toMatch(/controller\: BookController/);
+     *       expect(content).toMatch(/heroes\: BookController/);
      *       expect(content).toMatch(/Book Id\: Scarlet/);
      *     });
                  *   </file>
@@ -415,7 +415,7 @@
                  * @description
                  * Broadcasted after a route dependencies are resolved.
                  * {@link ngRoute.directive:ngView ngView} listens for the directive
-                 * to instantiate the controller and render the view.
+                 * to instantiate the heroes and render the view.
                  *
                  * @param {Object} angularEvent Synthetic event object.
                  * @param {Route} current Current route information.
@@ -461,7 +461,7 @@
                          * {@link ng.$location $location} hasn't changed.
                          *
                          * As a result of that, {@link ngRoute.directive:ngView ngView}
-                         * creates new scope and reinstantiates the controller.
+                         * creates new scope and reinstantiates the heroes.
                          */
                         reload: function () {
                             forceReload = true;
@@ -747,7 +747,7 @@
      deps="angular-route.js;angular-animate.js"
      animations="true" fixBase="true">
      <file name="index.html">
-     <div ng-controller="MainCtrl as main">
+     <div ng-heroes="MainCtrl as main">
      Choose:
      <a href="Book/Moby">Moby</a> |
      <a href="Book/Moby/ch/1">Moby: Ch1</a> |
@@ -769,14 +769,14 @@
 
      <file name="book.html">
      <div>
-     controller: {{book.name}}<br />
+     heroes: {{book.name}}<br />
      Book Id: {{book.params.bookId}}<br />
      </div>
      </file>
 
      <file name="chapter.html">
      <div>
-     controller: {{chapter.name}}<br />
+     heroes: {{chapter.name}}<br />
      Book Id: {{chapter.params.bookId}}<br />
      Chapter Id: {{chapter.params.chapterId}}
      </div>
@@ -830,28 +830,28 @@
               $routeProvider
                 .when('/Book/:bookId', {
                   templateUrl: 'book.html',
-                  controller: 'BookCtrl',
+                  heroes: 'BookCtrl',
                   controllerAs: 'book'
                 })
                 .when('/Book/:bookId/ch/:chapterId', {
                   templateUrl: 'chapter.html',
-                  controller: 'ChapterCtrl',
+                  heroes: 'ChapterCtrl',
                   controllerAs: 'chapter'
                 });
 
               $locationProvider.html5Mode(true);
           }])
-     .controller('MainCtrl', ['$route', '$routeParams', '$location',
+     .heroes('MainCtrl', ['$route', '$routeParams', '$location',
      function($route, $routeParams, $location) {
               this.$route = $route;
               this.$location = $location;
               this.$routeParams = $routeParams;
           }])
-     .controller('BookCtrl', ['$routeParams', function($routeParams) {
+     .heroes('BookCtrl', ['$routeParams', function($routeParams) {
             this.name = "BookCtrl";
             this.params = $routeParams;
           }])
-     .controller('ChapterCtrl', ['$routeParams', function($routeParams) {
+     .heroes('ChapterCtrl', ['$routeParams', function($routeParams) {
             this.name = "ChapterCtrl";
             this.params = $routeParams;
           }]);
@@ -862,14 +862,14 @@
      it('should load and compile correct template', function() {
           element(by.linkText('Moby: Ch1')).click();
           var content = element(by.css('[ng-view]')).getText();
-          expect(content).toMatch(/controller\: ChapterCtrl/);
+          expect(content).toMatch(/heroes\: ChapterCtrl/);
           expect(content).toMatch(/Book Id\: Moby/);
           expect(content).toMatch(/Chapter Id\: 1/);
 
           element(by.partialLinkText('Scarlet')).click();
 
           content = element(by.css('[ng-view]')).getText();
-          expect(content).toMatch(/controller\: BookCtrl/);
+          expect(content).toMatch(/heroes\: BookCtrl/);
           expect(content).toMatch(/Book Id\: Scarlet/);
         });
      </file>

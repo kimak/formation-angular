@@ -1,7 +1,7 @@
 'use strict';
 
 var app = angular
-    .module("avengersApp", ['ngRoute'])
+    .module("avengersApp", ['ngRoute','avengersApp.constants','avengersApp.filters'])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/heroes', {

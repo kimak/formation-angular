@@ -1,0 +1,12 @@
+<article>
+    <h4>{{hero.name}} {{hero.age}} ans</h4>
+    <span>{{hero.description}}</span>
+    <span>Dérnière activité : {{lastActivity }} {{since}}</span>
+    <img ng-src="{{hero.image}}">
+
+    <div ng-switch on="hero.status" class="status">
+        <span ng-switch-when="0" class="available">Disponible</span>
+        <span ng-switch-when="1" class="busy">Occupé</span>
+        <span ng-switch-when="2" class="unavailable">Indisponible</span>
+    </div>
+</article>

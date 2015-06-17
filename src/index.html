@@ -14,41 +14,20 @@
     <h2>{{getTitle()}} : {{currentDate | date:'fullDate'}}</h2>
 </header>
 
-<section ng-controller="HeroesCtrl">
-
-    <div class="filter">
-        Filtrer par:
-        <select ng-model="orderProp">
-            <option value="name">Ordre Alphabétique</option>
-            <option value="age">Age</option>
-            <option value="status">Status</option>
-        </select>
-    </div>
-
-    <ul>
-        <li ng-repeat="heroe in heroes | orderBy:orderProp" class="ng-class-even:'even';ng-class-odd:'odd'"
-            ng-click="click(heroe.name)"
-            ng-class="{isSelected:heroe.name==selectedHero}"
-                >
-            <h4>{{$index }} : {{heroe.name}}</h4>
-            <span>{{heroe.description}}</span>
-            <img ng-src="{{heroe.image}}">
-            <div ng-switch on="heroe.status" class="status">
-                <span ng-switch-when="0" class="available">Disponible</span>
-                <span ng-switch-when="1" class="busy">Occupé</span>
-                <span ng-switch-when="2" class="unavailable">Indisponible</span>
-            </div>
-        </li>
-    </ul>
-</section>
+<div ng-view></div>
 
 <script src="vendor/angular.js"></script>
 <script src="vendor/angular-route.js"></script>
+<script src="vendor/moment.js"></script>
 
 <script src="scripts/app.js"></script>
-<script src="scripts/filter/capitalize.js"></script>
-<script src="scripts/controller/root.js"></script>
-<script src="scripts/controller/heroes.js"></script>
-<script src="scripts/controller/header.js"></script>
+<script src="scripts/core/filters/capitalize.js"></script>
+<script src="scripts/root.js"></script>
+<script src="scripts/heroes/controllers/heroes.js"></script>
+<script src="scripts/header/header.js"></script>
+<script src="scripts/heroes/directives/heroInfo.js"></script>
+<script src="scripts/core/constants/urlConfig.js"></script>
+<script src="scripts/heroes/services/heroesFactory.js"></script>
+<script src="scripts/heroes/controllers/hero.js"></script>
 </body>
 </html>

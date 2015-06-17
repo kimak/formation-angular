@@ -1,6 +1,5 @@
 # Angular formation for beginners 
 
-
 - 1.Introduction
 - 2.Initialisation
 - 3.Les expressions
